@@ -81,7 +81,12 @@ public class Party {
         return companies;
     }
 
-    // Challenge: Getting the fillTables method to work and ensuring it correctly places as many guests as possible
+    /*
+    Challenge: Getting the fillTables method to work and ensuring it correctly places as many guests as possible
+    Solution: Sorting the list of companies by number of representatives to prioritize seating people from larger company.
+              This makes sure the companies who need to seat more tables have those tables available
+              when their turn comes along to be placed on the seating chart.
+    */
     public ArrayList<Table> fillTables (ArrayList<Company> companies) {
         ArrayList<Table> currentTables = new ArrayList<Table>();
         for (int i = 0; i < numTables; i++) {
