@@ -26,10 +26,14 @@ public class Attendee {
 		return companyNum;
 	}
 
+    public String getName() {
+        return name;
+    }
+
 	public void setTableNum(int num) {
 		tableNum = num;
 	}
-	
+
 	public void removeAttendee(Attendee attendee, ArrayList<Attendee> attendants) {
 		attendants.remove(attendee.getId()-1);
 	}
