@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Attendee {
 	String name;
 	int companyNum;
-	String company;
+	String companyName;
 	int id;
 	int tableNum;
 	int seatNum;
@@ -21,6 +21,10 @@ public class Attendee {
 	public int getTableNum() {
 		return tableNum;
 	}
+
+	public int getSeatNum() {
+		return seatNum;
+	}
 	
 	public int getCompanyNum() {
 		return companyNum;
@@ -30,12 +34,17 @@ public class Attendee {
         return name;
     }
 
-	public void setTableNum(int num) {
-		tableNum = num;
+	public String getCompanyName() {
+        return companyName;
+    }
+
+	public void setCompany(ArrayList<Company> companies) {
+		companyName = companies.get(companyNum-1).getName();
 	}
 
-	public void removeAttendee(Attendee attendee, ArrayList<Attendee> attendants) {
-		attendants.remove(attendee.getId()-1);
+	public void setTableAndSeat(int table, int seat) {
+		tableNum = table;
+		seatNum = seat;
 	}
 		
 	public String toString() {

@@ -30,6 +30,10 @@ public class Company {
         return numSeatedReps;
     }
 
+    public String getName() {
+        return name;
+    }
+
 
     public void setReps(ArrayList<Attendee> companyReps) {
         reps = companyReps;
@@ -42,9 +46,9 @@ public class Company {
 
 
     public String toString() {
-        String build = name + " is represented by:\n";
+        String build = name + " has " + numReps + " representatives:\n";
         for (Attendee guest: reps) {
-            build += (" - " + guest.getName() + "\n");
+            build += (" - " + guest.getName() + " at seat " + guest.getSeatNum() + " of table #" + guest.getTableNum() + "\n");
         }
         return build;
     }
