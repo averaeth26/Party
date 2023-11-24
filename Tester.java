@@ -53,32 +53,5 @@ public class Tester {
             }
             System.out.print("What would you like to do next?: ");
         }
-        // System.out.println(p1.searchForAttendee(attendants));
-        // System.out.println(p1.printCompanyRoster(companies));
-        // System.out.println(p1.printTableRoster(tables));
-        // for (Company company: companies) {
-        //     System.out.println(company.toString());
-        // System.out.println(tables);
-        // }
-        // int sum = 0;
-        // for (Table table: tables) {
-        //     System.out.println(table.toString());
-        //     sum += table.getPeople().size();
-        // }
-        // System.out.println(sum);
-
-	    // for (Attendee attendee: attendants) {
-		// 	System.out.println(attendee);
-		// }
-        // for (int tableNum = 0; tableNum < numTables; tableNum++) {
-        //     tables.add(new Table());
-        //     tables.get(tableNum).fillTable(attendants, tableNum);
-        // }
-        // int sum = 0;
-        // for (Table table: tables) {
-        //     System.out.println(table);
-        //     sum += table.getPeople().size();
-        // }
-        // System.out.println(sum);
     }
 }
