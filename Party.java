@@ -3,13 +3,22 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-
+/**
+Party.java
+@author Ethan Avera
+@since 11/16/23
+This class controls all of the overarching functions that tie all of the other classes together.
+ */
 public class Party {
     
     int numTables = 10;
     int numSeats = 10;
     Scanner scan = new Scanner(System.in);
 	
+    /*
+    This function reads the "partyguests.txt" file
+    It then creates and returns an ArrayList<Attendee> of attendants generated from the file. 
+    */
     public ArrayList<Attendee> generateAttendance() {
         ArrayList<Attendee> currentAttendants = new ArrayList<Attendee>();
         try {
@@ -28,6 +37,10 @@ public class Party {
         return currentAttendants;
     }
 
+    /*
+    This function reads the "companies.txt" file
+    It then creates and returns an ArrayList<Company> of companies generated from the file
+    */
     public ArrayList<Company> generateCompanies() {
         ArrayList<Company> currentCompanies = new ArrayList<Company>();
         try {
@@ -48,6 +61,11 @@ public class Party {
         return currentCompanies;
     }
 
+    /*
+    This function fills the list of companies generated above
+    To do this, it takes the ArrayList<Attendee> of attendants as a parameter and adds each one to the correct company
+    It then returns the filled ArrayList<Company> of companies
+    */
     public ArrayList<Company> fillCompanies(ArrayList<Attendee> attendants) {
         ArrayList<Company> companies = generateCompanies();
         ArrayList<Attendee> delete = new ArrayList<Attendee>();
@@ -71,6 +89,12 @@ public class Party {
         return companies;
     }
 
+    /*
+    This function sorts the companies
+    It takes an ArrayList<Company> as a parameter, and returns another ArrayList<Company>
+    It sorts them based on the size (number of representatives) of each company
+    This is necessary because, to fill the companies optimally, the larger companies need to be prioritized
+    */
     public ArrayList<Company> sortCompanies(ArrayList<Company> companies) { // Selection Sort, adapted from Runestone 7.6
         for (int i = companies.size()-1; i >= 1; i--) {
             int maxIndex = i;
@@ -87,6 +111,8 @@ public class Party {
     }
 
     /*
+    This Method fills all tables based on the inputted ArrayList<Companies>
+    It then returns an ArrayList<Table> of filled tables.
     Challenge: Getting the fillTables method to work and ensuring it correctly places as many guests as possible
     Solution: Sorting the list of companies by number of representatives to prioritize seating people from larger company.
               This makes sure the companies who need to seat more tables have those tables available
@@ -115,6 +141,11 @@ public class Party {
         return currentTables;
 	}
 
+    /*
+    This function finds an attendee based on their name or ID
+    It takes the ArrayList<Attendee> of Attendants as a parameter
+    It then returns a String with info about its findings
+    */
     public String searchForAttendee(ArrayList<Attendee> Attendants) {
         System.out.print("Enter a name or ID to search for: ");
         String query = scan.nextLine();
@@ -128,7 +159,10 @@ public class Party {
         return ("The guest you're looking for doesn't exist!\n");
     }
 
-    // TODO: Fix crash when input is not a number.
+    /*
+    This function returns a formatted roster (the toString()) for a specified table
+    It takes an ArrayList<Table> as a parameter, and returns a formatted String
+    */
     public String printTableRoster(ArrayList<Table> tables) {
         System.out.print("Which table would you like to view a roster for? (Enter Table Number): ");
         String table = scan.nextLine();
@@ -143,7 +177,10 @@ public class Party {
         }
         return(tables.get(tableNum-1)).toString();
     }
-
+    /*
+    This function returns a formatted roster (the toString()) for a specified company
+    It takes an ArrayList<Company> as a parameter, and returns a formatted String
+    */
     public String printCompanyRoster(ArrayList<Company> companies) {
         System.out.print("Which company would you like to view a roster for? (Enter Company Name): ");
         String companyName = scan.nextLine();
@@ -157,9 +194,13 @@ public class Party {
         
     }
 
-    /* Challenge: Getting addAttendees to properly put the newly created attendant in the roster.
-     * After 4 attempted solutions and many bugs, I managed to get it working by resetting each guest's seat,
-     * then calling the fillTables function to redo the seating charts entirely.
+    /* 
+    This function adds a specified attendee based on an inputted name and company
+    It takes an ArrayList<Attendee> of attendants, an ArrayList<Company> of companies, and an ArrayList<Table> of tables as parameters
+    It returns a String describing the results of the function call
+    Challenge: Getting addAttendees to properly put the newly created attendant in the roster.
+    After 4 attempted solutions and many bugs, I managed to get it working by resetting each guest's seat,
+    then calling the fillTables function to redo the seating charts entirely.
     */
     public String addAttendee(ArrayList<Attendee> attendants, ArrayList<Company> companies, ArrayList<Table> tables) {
 		System.out.print("What is the name of the attendee you would like to add?: ");
@@ -206,6 +247,12 @@ public class Party {
         + " of table #" + currentAttendee.getTableNum() + ".\n";
 	}
 
+    /*
+    Helper function for the addAttendee() function
+    This function finds the lowest ID that is not taken by a guest
+    If no such ID exists, it returns -1
+    This function takes an ArrayList<Attendee> as a parameter and returns an ID as an int
+    */
     public int findLowestAvailableId(ArrayList<Attendee> attendants) {
         for (int i = 1; i <= numTables*numSeats; i++) {
             boolean available = true;
@@ -220,7 +267,11 @@ public class Party {
         }
         return -1;
     }
-
+    /*
+    This function removes a specified attendee based on an inputted name or company
+    It takes an ArrayList<Attendee> of attendants, an ArrayList<Company> of companies, and an ArrayList<Table> of tables as parameters
+    It returns a String describing the results of the function call
+    */
     public String removeAttendee(ArrayList<Attendee> attendants, ArrayList<Company> companies, ArrayList<Table> tables) {
         System.out.print("Enter the name or ID of an attendee to remove: ");
         String attendeeInfo = scan.nextLine();

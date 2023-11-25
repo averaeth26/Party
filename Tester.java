@@ -1,7 +1,18 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+Tester.java
+@author Ethan Avera
+@since 11/16/23
+The tester class contains the main method.
+This is the class that is referenced when running the program.
+*/
 public class Tester {
+    /* 
+    This is the method that actually runs the program.
+    No return type.
+    */
 	public static void main(String[] args) {
 		Party p1 = new Party();
         Intro i1 = new Intro();

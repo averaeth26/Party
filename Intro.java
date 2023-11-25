@@ -1,4 +1,15 @@
+/**
+Intro.java
+@author Ethan Avera
+@since 11/24/23
+This class controls the directions of the game.
+*/
+
 public class Intro {
+    /*
+    This method prints out the instructions/directions for the program
+    It does not have any parameters, and has no return value
+    */
     public void directions() {
         System.out.println("There are a few command words necessary to use this program:");
         System.out.println(" - To search for a guest, type \"s\" or \"search\"");
