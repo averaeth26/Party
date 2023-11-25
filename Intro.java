@@ -7,6 +7,7 @@ public class Intro {
         System.out.println(" - To view the roster of a specific table, type \"tr\" or \"view table roster\"");
         System.out.println(" - To view the roster of all tables, type \"atr\" or \"view all table rosters\"");
         System.out.println(" - To view the roster of a company, type \"cr\" or \"view company roster\"");
+        System.out.println(" - To view the roster of all companies, type \"acr\" or \"view all company rosters\"");
         System.out.println(" - To exit the program, type \"q\" or \"quit\"\n");
     }    
 }
