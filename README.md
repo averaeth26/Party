@@ -1,2 +1,2 @@
-# Party
-Party Project for APCS_A
+# Party Planner
+### This program aims to help people with the confusion of planning large, multi-company parties. When given a list of attendees, this program sorts them into a specified number of tables and seats, and ensures no table has multiple representatives from the same company. This program also comes with the added functionality of allowing the user to add or remove attendees manually, as well as search for an attendee in the party.
