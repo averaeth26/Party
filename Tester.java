@@ -41,7 +41,7 @@ public class Tester {
                 System.out.println(p1.printTableRoster(tables));
             }
             else if (userCommand.equals("atr") || userCommand.equals("view all table rosters")) {
-                System.out.println ("There are " + attendants.size() + " guests, sitting in" + tables.size() + " tables:\n");
+                System.out.println ("There are " + attendants.size() + " guests, sitting in " + tables.size() + " tables:\n");
                 for (Table table: tables) {
                     System.out.println(table.toString());
                 }
