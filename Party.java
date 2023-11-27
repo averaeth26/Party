@@ -8,7 +8,7 @@ Party.java
 @author Ethan Avera
 @since 11/16/23
 This class controls all of the overarching functions that tie all of the other classes together.
- */
+*/
 public class Party {
     
     int numTables = 10;
